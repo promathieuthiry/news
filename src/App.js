@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { HashRouter, Route, Switch } from "react-router-dom"
+import HomePage from "./components/home-page"
+import NoMatchPage from "./components/404-page"
+import TopHeadline from "./components/top-headline"
+import "rsuite/dist/styles/rsuite-default.css"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HashRouter basename="/">
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/topheadline" component={TopHeadline} />
+          <Route component={NoMatchPage} />
+        </Switch>
+      </HashRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
